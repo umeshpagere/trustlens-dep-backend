@@ -3,4 +3,4 @@ services:
     name: trustlens-backend
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: hypercorn run:app -c hypercorn_config.py
+    startCommand: hypercorn run:app -c hypercorn.toml
