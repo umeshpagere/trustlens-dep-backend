@@ -1,0 +1,30 @@
+[download]   0.3% of  350.61KiB at  935.39KiB/s ETA 00:00Testing Instagram URL...
+🎬 [Pipeline] Starting Multi-modal Video Pipeline for: https://www.instagram.com/p/DVgR1bgEsUx/
+🎬 [Pipeline] Step 1: Extracting Audio Transcript
+🔍 Detected platform: Instagram (tier: audio)
+🎙️ [Instagram] Using Deepgram audio transcription…
+🎙️ [Deepgram] Downloading audio for instagram: https://www.instagram.com/p/DVgR1bgEsUx/
+[download]   0.9% of  350.61KiB at    1.42MiB/s ETA 00:00[download]   2.0% of  350.61KiB at    2.42MiB/s ETA 00:00[download]   4.3% of  350.61KiB at  283.78KiB/s ETA 00:01[download]   8.8% of  350.61KiB at  400.97KiB/s ETA 00:00[download]  18.0% of  350.61KiB at  554.57KiB/s ETA 00:00[download]  36.2% of  350.61KiB at  738.96KiB/s ETA 00:00[download]  72.7% of  350.61KiB at 1006.21KiB/s ETA 00:00[download] 100.0% of  350.61KiB at    1.09MiB/s ETA 00:00[download] 100% of  350.61KiB in 00:00:00 at 678.00KiB/s                                                         ✅ [Deepgram] Audio downloaded: 1.1 MB
+📡 [Deepgram] Sending API request...
+✅ [Deepgram] Transcribed 769 chars for instagram
+
+────────────────────────────────────────────────────────────
+🎙️ [Deepgram] TRANSCRIPT OUTPUT (instagram):
+────────────────────────────────────────────────────────────
+तो मैंने अपने client से charge किया है दस हज़ार dollar इस animated website के लिए और मैं आपको बताऊंगा कि कैसे दस minute में आप इस website को बना सकते हो. तो इस cigaretted website का link आपको video के end में मिलेगा and यहां पे मिलने वाले animation कुछ ऐसे हैं जैसे दोस्तों में बदलती हुई भाभी. वैसे ही जैसे लड़कियों के mood swings बदलते हैं, आप यहां पे कुछ changes करके अपनी websites को ready कर सकते हो and अपने AI coder को copy करके, उसे link paste करके दे सकते हो and boom आपको कुछ ऐसी websites मिलेगी जिससे आप 10000 dollar तक charge कर सकते हैं अपने client से. तो अगर तुम्हें भी अपने client से तारीफें सुननी है and उनके लिए ऐसे websites बना के देने हैं तो मुझे follow करके comment करो अपने client का number और मैं इसका link तुम्हारे DM में भेज दूंगा तब तक के लिए by
+────────────────────────────────────────────────────────────
+
+🎬 [Pipeline] Step 2: Extracting Video Frames via FFmpeg
+🎬 [FFmpeg] Extracting frames from https://www.instagram.com/p/DVgR1bgEsUx/ at 0.5 FPS (max 30)
+✅ [FFmpeg] Extracted 25 frames in 12.88s
+🎬 [Pipeline] Step 3: Running Async OCR on 25 frames
+🗑️ [OCR Dropped: Too short] o
+🗑️ [OCR Dropped: Too short] fog
+🗑️ [OCR Dropped: Too short] llm
+🗑️ [OCR Dropped: Too short] 404
+🗑️ [OCR Dropped: Too short] eso
+🗑️ [OCR Dropped: Too short] all
+🗑️ [OCR Dropped: Too short] man
+🎬 [Pipeline] Step 4: Aggregating Multi-modal Outputs
+🎬 [Pipeline] Completed. Extracted 20 unique text lines.
+{'success': True, 'videoTranscript': 'तो मैंने अपने client से charge किया है दस हज़ार dollar इस animated website के लिए और मैं आपको बताऊंगा कि कैसे दस minute में आप इस website को बना सकते हो. तो इस cigaretted website का link आपको video के end में मिलेगा and यहां पे मिलने वाले animation कुछ ऐसे हैं जैसे दोस्तों में बदलती हुई भाभी. वैसे ही जैसे लड़कियों के mood swings बदलते हैं, आप यहां पे कुछ changes करके अपनी websites को ready कर सकते हो and अपने AI coder को copy करके, उसे link paste करके दे सकते हो and boom आपको कुछ ऐसी websites मिलेगी जिससे आप 10000 dollar तक charge कर सकते हैं अपने client से. तो अगर तुम्हें भी अपने client से तारीफें सुननी है and उनके लिए ऐसे websites बना के देने हैं तो मुझे follow करके comment करो अपने client का number और मैं इसका link तुम्हारे DM में भेज दूंगा तब तक के लिए by', 'ocrText': ['brr». st', 'report', 'receipt a', "et's make", 'had app', 'mciog', 'for busy professionals', 'still living in the past', 'i howtocancelasubscription? +', 'dcmload row', "we're on reddit, where your voice shapes our app.", "share feedback. ideas, and let's build the best", 'experience together', 'tell', 'inspiration resources pricing', '• new: the gallery', 'the design tool', 'for webgl magic', 'create jaw-d', 'ing motion and interaction in'], 'combinedVideoText': "Transcript:\n[तो मैंने अपने client से charge किया है दस हज़ार dollar इस animated website के लिए और मैं आपको बताऊंगा कि कैसे दस minute में आप इस website को बना सकते हो. तो इस cigaretted website का link आपको video के end में मिलेगा and यहां पे मिलने वाले animation कुछ ऐसे हैं जैसे दोस्तों में बदलती हुई भाभी. वैसे ही जैसे लड़कियों के mood swings बदलते हैं, आप यहां पे कुछ changes करके अपनी websites को ready कर सकते हो and अपने AI coder को copy करके, उसे link paste करके दे सकते हो and boom आपको कुछ ऐसी websites मिलेगी जिससे आप 10000 dollar तक charge कर सकते हैं अपने client से. तो अगर तुम्हें भी अपने client से तारीफें सुननी है and उनके लिए ऐसे websites बना के देने हैं तो मुझे follow करके comment करो अपने client का number और मैं इसका link तुम्हारे DM में भेज दूंगा तब तक के लिए by]\n\nOn-screen text detected in video frames:\n[brr». st]\n[report]\n[receipt a]\n[et's make]\n[had app]\n[mciog]\n[for busy professionals]\n[still living in the past]\n[i howtocancelasubscription? +]\n[dcmload row]\n[we're on reddit, where your voice shapes our app.]\n[share feedback. ideas, and let's build the best]\n[experience together]\n[tell]\n[inspiration resources pricing]\n[• new: the gallery]\n[the design tool]\n[for webgl magic]\n[create jaw-d]\n[ing motion and interaction in]\n", 'framesAnalyzed': 25, 'visualTextDetected': True, 'ocrMetadata': {'ocr_text_count': 20, 'frames_with_text': 18, 'raw_detections_filtered': 88}, 'method': 'multimodal_pipeline', 'platform': 'instagram', 'video_id': 'DVgR1bgEsUx', 'title': 'Video by 99byte.dev', 'error': None}
