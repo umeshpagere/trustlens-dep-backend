@@ -7,12 +7,21 @@ from app.services.semantic_ranker import embed_text, compute_similarity
 
 logger = logging.getLogger(__name__)
 
-# Ensure punkt is available
-try:
-    nltk.data.find('tokenizers/punkt_tab')
-except LookupError:
-    logger.info("Downloading NLTK punkt_tab tokenizer...")
-    nltk.download('punkt_tab')
+_punkt_downloaded = False
+
+def _ensure_punkt():
+    global _punkt_downloaded
+    if not _punkt_downloaded:
+        try:
+            nltk.data.find('tokenizers/punkt_tab')
+            _punkt_downloaded = True
+        except LookupError:
+            logger.info("Downloading NLTK punkt_tab tokenizer...")
+            try:
+                nltk.download('punkt_tab', quiet=True)
+                _punkt_downloaded = True
+            except Exception as e:
+                logger.warning(f"Failed to download punkt_tab: {e}")
 
 SIMILARITY_THRESHOLD = 0.65
 
@@ -22,6 +31,7 @@ def split_into_sentences(text: str) -> List[str]:
         return []
         
     try:
+        _ensure_punkt()
         return sent_tokenize(text)
     except Exception as e:
         logger.warning("NLTK sent_tokenize failed, falling back to basic split: %s", e)
