@@ -5,22 +5,30 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# Load the model globally so it stays warm in memory across requests
-try:
-    logger.info("Loading sentence-transformers model 'all-MiniLM-L6-v2'...")
-    _model = SentenceTransformer("all-MiniLM-L6-v2")
-    logger.info("Successfully loaded sentence-transformers model.")
-except Exception as e:
-    logger.error("Failed to load sentence-transformers model. Semantic ranking will fail. Error: %s", e)
-    _model = None
+# Model is loaded lazily to prevent gunicorn/hypercorn from timing out during worker boot
+_model = None
+_model_failed = False
+
+def _get_model():
+    global _model, _model_failed
+    if _model is None and not _model_failed:
+        try:
+            logger.info("Loading sentence-transformers model 'all-MiniLM-L6-v2'...")
+            _model = SentenceTransformer("all-MiniLM-L6-v2")
+            logger.info("Successfully loaded sentence-transformers model.")
+        except Exception as e:
+            logger.error("Failed to load sentence-transformers model. Semantic ranking will fail. Error: %s", e)
+            _model_failed = True
+    return _model
 
 def embed_text(text: str) -> np.ndarray:
     """Convert text into a vector embedding."""
-    if not text or not _model:
+    model = _get_model()
+    if not text or not model:
         # Return a zero vector if there's no text or model
         # 384 is the hidden size for all-MiniLM-L6-v2
         return np.zeros(384)
-    return _model.encode(text)
+    return model.encode(text)
 
 def compute_similarity(vec1: np.ndarray, vec2: np.ndarray) -> float:
     """Calculate the cosine similarity between two vector embeddings."""
