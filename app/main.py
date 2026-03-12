@@ -9,7 +9,6 @@ from app.routes.analyze import analyze_bp
 from app.config.settings import Config
 
 def create_app():
-    print("🚀 TrustLens backend starting on Render...")
     static_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'public')
     app = Flask(__name__, static_folder=static_path, static_url_path='')
     
@@ -41,3 +40,9 @@ def create_app():
         }), 500
     
     return app
+
+
+if __name__ == '__main__':
+    app = create_app()
+    print(f"🚀 TrustLens backend running on port {Config.PORT}")
+    app.run(host='0.0.0.0', port=Config.PORT, debug=True)
